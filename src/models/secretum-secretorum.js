@@ -12,6 +12,7 @@ export default class SecretumSecretorum extends BaseGacha {
   }
   set attempts(amount) {
     this.attemptsCount += amount
+    // This logic is not correct
     this.guaranteed5Star = !(this.attemptsCount % 90)
   }
   roll() {
