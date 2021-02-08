@@ -6,8 +6,17 @@ export default class WishResults extends Component {
   isNewItem(key) {
     return !this.props.inventory[key]
   }
+
   render() {
+    var characterPositionXMap = [];
+    characterPositionXMap['Xiao']  = 50;
+    characterPositionXMap['Beidou']  = 53;
+    characterPositionXMap['Ningguang']  = 58;
+    characterPositionXMap['Chongyun']  = 63;
+    characterPositionXMap['Bennett']  = 57;
+
     const { wishes, setView, updateInventory } = this.props
+    let characterPercentX = 60;
     const isSingleItem = wishes.length === 1
     return (
       <div className="wish-results">
@@ -29,6 +38,7 @@ export default class WishResults extends Component {
                 <WishItemSingle
                 item={wishes[0]}
                 isNewItem={this.isNewItem(wishes[0].name)}
+                characterPercentX={characterPercentX}
                 />
               )
               : (
@@ -37,6 +47,7 @@ export default class WishResults extends Component {
                     key={index}
                     item={item}
                     isNewItem={this.isNewItem(item.name)}
+                    characterPercentX={characterPositionXMap[item.name] || 50}
                   />
                   ))
               )

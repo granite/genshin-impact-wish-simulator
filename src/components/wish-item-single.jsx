@@ -5,7 +5,7 @@ const characterImages = require.context('../assets/images/characters');
 const weaponImages = require.context('../assets/images/weapons');
 const characterIcons = require.context('../assets/images/details/character-icons');
 export default function WishItemSingle(props) {
-  const { isNewItem } = props
+  const { isNewItem, characterPercentX } = props
   const {src, name, rating, type} = props.item
   const isCharacter = type === 'character'
   const backgroundImage = `url('${isCharacter ? characterImages('./' + src).default : weaponImages('./' + src).default}')`
